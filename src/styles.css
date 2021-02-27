@@ -1,0 +1,274 @@
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+body {
+  margin: unset;
+  padding: unset;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  background-color: rgb(24, 24, 26);
+}
+
+a {
+  color: #ececec;
+  text-decoration: none;
+}
+
+button {
+  font-family: unset;
+  font-size: unset;
+}
+
+.iconButton {
+  width: 40px;
+  height: 40px;
+  border-radius: 3px;
+  background-color: #ffffff10;
+  padding: 8px;
+  transition: 0.25s ease-out;
+}
+
+.iconButton:focus {
+  outline: 1px solid #fff;
+}
+
+.iconButton:hover {
+  background-color: #ffffff40;
+}
+
+header {
+  background: #242528;
+  display: grid;
+  padding: 5px 20px;
+  align-items: center;
+
+  grid-template-columns: 200px 1fr 200px;
+  grid-gap: 20px;
+}
+
+.actions {
+  display: flex;
+  gap: 8px;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+nav ul {
+  display: flex;
+  gap: 30px;
+}
+
+.dropdownwrapper {
+  position: relative;
+}
+
+.dropdown {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background: #242528;
+  text-align: left;
+  width: 350px;
+
+  border: 1px solid #4a4c4e;
+  border-radius: 4px;
+  overflow: hidden;
+
+  transition: 0.15s ease-out;
+  height: var(--height, auto);
+}
+
+.dropdown[aria-hidden="true"] {
+  display: none;
+}
+
+button {
+  -webkit-appearance: none;
+  border: 0;
+  border-radius: 0;
+  background-color: transparent;
+  color: #ececec;
+}
+
+.submenu > button,
+.profile {
+  color: #ececec;
+  border-bottom: 1px solid #ffffff10;
+  display: flex;
+  gap: 18px;
+  align-items: center;
+  padding: 16px 0;
+  margin: 0 8px;
+}
+
+.dropdown .submenu > button {
+  width: calc(100% - 16px);
+  font-weight: 800;
+  font-size: 1.2rem;
+  margin: 8px;
+}
+
+.profile img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.dropdown ul {
+  margin: 8px;
+}
+
+.dropdown a,
+.dropdown button,
+.dropdown label {
+  color: #ececec;
+  display: flex;
+  gap: 16px;
+  width: 100%;
+  background: none;
+  padding: 8px;
+  min-height: 38px;
+  transition: 0.25s ease-out;
+  position: relative;
+  line-height: 38px;
+}
+
+.dropdown a:hover,
+.dropdown button:hover,
+.dropdown label:hover {
+  background: #4a4c4e;
+  border-radius: 6px;
+}
+
+.dropdown li > button:not(:last-child)::after {
+  content: "";
+  border: solid #4a4c4e;
+  border-width: 0 3px 3px 0;
+  width: 12px;
+  height: 12px;
+  position: absolute;
+  right: 16px;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  transform: rotate(-45deg);
+}
+
+.divider {
+  border-top: 1px solid #ffffff10;
+  padding-top: 8px;
+  margin-top: 8px;
+}
+
+.icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  background-color: #4c4f50;
+  border-radius: 50%;
+  color: #c2c2c2;
+}
+
+label input {
+  position: absolute;
+  opacity: 0;
+}
+
+label input[type="checkbox"] ~ span:after {
+  content: "";
+  background: rgb(204, 204, 204);
+  height: 24px;
+  border-radius: 12px;
+  width: 40px;
+  position: absolute;
+  right: 16px;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  transition: 0.25s ease-out;
+}
+
+label input[type="checkbox"]:checked ~ span:after {
+  background-color: #3588eb;
+}
+
+label input[type="checkbox"] ~ span::before {
+  content: "";
+  width: 22px;
+  height: 22px;
+  position: absolute;
+  bottom: 0;
+  right: 16px;
+  top: 0;
+  margin: auto;
+  border-radius: 50%;
+  background-color: rgb(255, 255, 255);
+  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.25);
+  transition: 0.25s ease-out;
+  z-index: 1;
+}
+
+label {
+  user-select: none;
+}
+
+label input[type="checkbox"]:checked ~ span::before {
+  content: "";
+  transform: translateX(-80%);
+}
+
+.submenu {
+  position: absolute;
+  top: 0;
+  left: 100%;
+  width: 100%;
+}
+
+.submenu > button {
+  display: flex;
+}
+
+.inner {
+  transition: 0.15s ease-out;
+  transform: translateX(calc(-100% * var(--depth, 0)));
+}
+
+.person {
+  text-align: left;
+  align-items: center;
+}
+
+.person img {
+  border-radius: 50%;
+  display: block;
+}
+
+[hidden] {
+  pointer-events: none;
+  display: block;
+  transition: opacity 0s 0.15s linear;
+  opacity: 0;
+}
+
+.toggle-button-wrapper {
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.toggle-button {
+  display: flex;
+  border-radius: 3px;
+  background: #00000030;
+}
